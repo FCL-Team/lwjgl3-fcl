@@ -6,3 +6,6 @@
 
 ## Source project
  [LWJGL3](https://github.com/LWJGL/lwjgl3)
+
+## Compilation
+ We use idea instead of ant
