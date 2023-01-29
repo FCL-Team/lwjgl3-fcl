@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.lwjgl'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    archiveFileName = 'lwjgl.jar'
+    manifest {
+        attributes 'Manifest-Version': '1.0'
+    }
+}
+
+dependencies {
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}
