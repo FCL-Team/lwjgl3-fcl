@@ -10,9 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0a07c8b-dfb6-4c47-8d9d-a3fe9ed4c3c9" name="变更" comment="变更">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +72,7 @@
   "keyToString": {
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/IntelliJ IDEA/HMCL",
+    "last_opened_file_path": "D:/Projects/FCL/LWJGL-FCL",
     "project.structure.last.edited": "工件",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -134,7 +132,7 @@
       <workItem from="1673751686296" duration="2377000" />
       <workItem from="1674550198428" duration="5057000" />
       <workItem from="1674559892582" duration="29088000" />
-      <workItem from="1674905363666" duration="10410000" />
+      <workItem from="1674905363666" duration="14785000" />
     </task>
     <task id="LOCAL-00001" summary="Lwjgl3">
       <created>1673534527409</created>
