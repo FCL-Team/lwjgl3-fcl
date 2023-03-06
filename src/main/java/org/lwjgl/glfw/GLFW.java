@@ -667,12 +667,26 @@ public class GLFW {
         GLFW_EGL_CONTEXT_API    = 0x36002,
         GLFW_OSMESA_CONTEXT_API = 0x36003;
 
+    private static final GLFWVidMode glfwVidMode;
+    public static int glfwWindowWidth;
+    public static int glfwWindowHeight;
+
     protected GLFW() {
         throw new UnsupportedOperationException();
     }
 
     public static final SharedLibrary GLFW = Library.loadNative(GLFW.class, "org.lwjgl.glfw", Configuration.GLFW_LIBRARY_NAME.get(Platform.mapLibraryNameBundled("glfw")), true);
-
+    static {
+        glfwWindowWidth = Integer.parseInt(System.getProperty("window.width"));
+        glfwWindowHeight = Integer.parseInt(System.getProperty("window.height"));
+        glfwVidMode = new GLFWVidMode(ByteBuffer.allocateDirect(GLFWVidMode.SIZEOF));
+        memPutInt(glfwVidMode.address() + GLFWVidMode.WIDTH, glfwWindowWidth);
+        memPutInt(glfwVidMode.address() + GLFWVidMode.HEIGHT, glfwWindowHeight);
+        memPutInt(glfwVidMode.address() + GLFWVidMode.REDBITS, 8);
+        memPutInt(glfwVidMode.address() + GLFWVidMode.GREENBITS, 8);
+        memPutInt(glfwVidMode.address() + GLFWVidMode.BLUEBITS, 8);
+        memPutInt(glfwVidMode.address() + GLFWVidMode.REFRESHRATE, 60);
+    }
     /** Contains the function pointers loaded from the glfw {@link SharedLibrary}. */
     public static final class Functions {
 
@@ -1418,8 +1432,8 @@ public class GLFW {
     @Nullable
     @NativeType("GLFWvidmode const *")
     public static GLFWVidMode glfwGetVideoMode(@NativeType("GLFWmonitor *") long monitor) {
-        long __result = nglfwGetVideoMode(monitor);
-        return GLFWVidMode.createSafe(__result);
+//        long __result = nglfwGetVideoMode(monitor);
+        return glfwVidMode;
     }
 
     // --- [ glfwSetGamma ] ---
