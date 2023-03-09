@@ -783,19 +783,6 @@ public class GLFW {
             SetCursorEnterCallback        = apiGetFunctionAddress(GLFW, "glfwSetCursorEnterCallback"),
             SetScrollCallback             = apiGetFunctionAddress(GLFW, "glfwSetScrollCallback"),
             SetDropCallback               = apiGetFunctionAddress(GLFW, "glfwSetDropCallback"),
-            JoystickPresent               = apiGetFunctionAddress(GLFW, "glfwJoystickPresent"),
-            GetJoystickAxes               = apiGetFunctionAddress(GLFW, "glfwGetJoystickAxes"),
-            GetJoystickButtons            = apiGetFunctionAddress(GLFW, "glfwGetJoystickButtons"),
-            GetJoystickHats               = apiGetFunctionAddress(GLFW, "glfwGetJoystickHats"),
-            GetJoystickName               = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
-            GetJoystickGUID               = apiGetFunctionAddress(GLFW, "glfwGetJoystickGUID"),
-            SetJoystickUserPointer        = apiGetFunctionAddress(GLFW, "glfwSetJoystickUserPointer"),
-            GetJoystickUserPointer        = apiGetFunctionAddress(GLFW, "glfwGetJoystickUserPointer"),
-            JoystickIsGamepad             = apiGetFunctionAddress(GLFW, "glfwJoystickIsGamepad"),
-            SetJoystickCallback           = apiGetFunctionAddress(GLFW, "glfwSetJoystickCallback"),
-            UpdateGamepadMappings         = apiGetFunctionAddress(GLFW, "glfwUpdateGamepadMappings"),
-            GetGamepadName                = apiGetFunctionAddress(GLFW, "glfwGetGamepadName"),
-            GetGamepadState               = apiGetFunctionAddress(GLFW, "glfwGetGamepadState"),
             SetClipboardString            = apiGetFunctionAddress(GLFW, "glfwSetClipboardString"),
             GetClipboardString            = apiGetFunctionAddress(GLFW, "glfwGetClipboardString"),
             GetTime                       = apiGetFunctionAddress(GLFW, "glfwGetTime"),
@@ -3909,20 +3896,7 @@ public class GLFW {
      */
     @NativeType("int")
     public static boolean glfwJoystickPresent(int jid) {
-        long __functionAddress = Functions.JoystickPresent;
-        return invokeI(jid, __functionAddress) != 0;
-    }
-
-    // --- [ glfwGetJoystickAxes ] ---
-
-    /**
-     * Unsafe version of: {@link #glfwGetJoystickAxes GetJoystickAxes}
-     *
-     * @param count where to store the number of axis values in the returned array. This is set to zero if the joystick is not present or an error occurred.
-     */
-    public static long nglfwGetJoystickAxes(int jid, long count) {
-        long __functionAddress = Functions.GetJoystickAxes;
-        return invokePP(jid, count, __functionAddress);
+        return false;
     }
 
     /**
@@ -3945,26 +3919,7 @@ public class GLFW {
     @Nullable
     @NativeType("float const *")
     public static FloatBuffer glfwGetJoystickAxes(int jid) {
-        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-        IntBuffer count = stack.callocInt(1);
-        try {
-            long __result = nglfwGetJoystickAxes(jid, memAddress(count));
-            return memFloatBufferSafe(__result, count.get(0));
-        } finally {
-            stack.setPointer(stackPointer);
-        }
-    }
-
-    // --- [ glfwGetJoystickButtons ] ---
-
-    /**
-     * Unsafe version of: {@link #glfwGetJoystickButtons GetJoystickButtons}
-     *
-     * @param count where to store the number of button states in the returned array. This is set to zero if the joystick is not present or an error occurred.
-     */
-    public static long nglfwGetJoystickButtons(int jid, long count) {
-        long __functionAddress = Functions.GetJoystickButtons;
-        return invokePP(jid, count, __functionAddress);
+        return null;
     }
 
     /**
@@ -3991,26 +3946,7 @@ public class GLFW {
     @Nullable
     @NativeType("unsigned char const *")
     public static ByteBuffer glfwGetJoystickButtons(int jid) {
-        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-        IntBuffer count = stack.callocInt(1);
-        try {
-            long __result = nglfwGetJoystickButtons(jid, memAddress(count));
-            return memByteBufferSafe(__result, count.get(0));
-        } finally {
-            stack.setPointer(stackPointer);
-        }
-    }
-
-    // --- [ glfwGetJoystickHats ] ---
-
-    /**
-     * Unsafe version of: {@link #glfwGetJoystickHats GetJoystickHats}
-     *
-     * @param count where to store the number of hat states in the returned array. This is set to zero if the joystick is not present or an error occurred.
-     */
-    public static long nglfwGetJoystickHats(int jid, long count) {
-        long __functionAddress = Functions.GetJoystickHats;
-        return invokePP(jid, count, __functionAddress);
+        return null;
     }
 
     /**
@@ -4060,22 +3996,7 @@ public class GLFW {
     @Nullable
     @NativeType("unsigned char const *")
     public static ByteBuffer glfwGetJoystickHats(int jid) {
-        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-        IntBuffer count = stack.callocInt(1);
-        try {
-            long __result = nglfwGetJoystickHats(jid, memAddress(count));
-            return memByteBufferSafe(__result, count.get(0));
-        } finally {
-            stack.setPointer(stackPointer);
-        }
-    }
-
-    // --- [ glfwGetJoystickName ] ---
-
-    /** Unsafe version of: {@link #glfwGetJoystickName GetJoystickName} */
-    public static long nglfwGetJoystickName(int jid) {
-        long __functionAddress = Functions.GetJoystickName;
-        return invokeP(jid, __functionAddress);
+        return null;
     }
 
     /**
@@ -4098,16 +4019,7 @@ public class GLFW {
     @Nullable
     @NativeType("char const *")
     public static String glfwGetJoystickName(int jid) {
-        long __result = nglfwGetJoystickName(jid);
-        return memUTF8Safe(__result);
-    }
-
-    // --- [ glfwGetJoystickGUID ] ---
-
-    /** Unsafe version of: {@link #glfwGetJoystickGUID GetJoystickGUID} */
-    public static long nglfwGetJoystickGUID(int jid) {
-        long __functionAddress = Functions.GetJoystickGUID;
-        return invokeP(jid, __functionAddress);
+        return null;
     }
 
     /**
@@ -4137,8 +4049,7 @@ public class GLFW {
     @Nullable
     @NativeType("char const *")
     public static String glfwGetJoystickGUID(int jid) {
-        long __result = nglfwGetJoystickGUID(jid);
-        return memUTF8Safe(__result);
+        return null;
     }
 
     // --- [ glfwSetJoystickUserPointer ] ---
@@ -4159,11 +4070,7 @@ public class GLFW {
      * @since version 3.3
      */
     public static void glfwSetJoystickUserPointer(int jid, @NativeType("void *") long pointer) {
-        long __functionAddress = Functions.SetJoystickUserPointer;
-        if (CHECKS) {
-            check(pointer);
-        }
-        invokePV(jid, pointer, __functionAddress);
+
     }
 
     // --- [ glfwGetJoystickUserPointer ] ---
@@ -4183,8 +4090,7 @@ public class GLFW {
      */
     @NativeType("void *")
     public static long glfwGetJoystickUserPointer(int jid) {
-        long __functionAddress = Functions.GetJoystickUserPointer;
-        return invokeP(jid, __functionAddress);
+        return 0;
     }
 
     // --- [ glfwJoystickIsGamepad ] ---
@@ -4205,16 +4111,7 @@ public class GLFW {
      */
     @NativeType("int")
     public static boolean glfwJoystickIsGamepad(int jid) {
-        long __functionAddress = Functions.JoystickIsGamepad;
-        return invokeI(jid, __functionAddress) != 0;
-    }
-
-    // --- [ glfwSetJoystickCallback ] ---
-
-    /** Unsafe version of: {@link #glfwSetJoystickCallback SetJoystickCallback} */
-    public static long nglfwSetJoystickCallback(long cbfun) {
-        long __functionAddress = Functions.SetJoystickCallback;
-        return invokePP(cbfun, __functionAddress);
+        return false;
     }
 
     /**
@@ -4236,16 +4133,9 @@ public class GLFW {
     @Nullable
     @NativeType("GLFWjoystickfun")
     public static GLFWJoystickCallback glfwSetJoystickCallback(@Nullable @NativeType("GLFWjoystickfun") GLFWJoystickCallbackI cbfun) {
-        return GLFWJoystickCallback.createSafe(nglfwSetJoystickCallback(memAddressSafe(cbfun)));
+        return null;
     }
 
-    // --- [ glfwUpdateGamepadMappings ] ---
-
-    /** Unsafe version of: {@link #glfwUpdateGamepadMappings UpdateGamepadMappings} */
-    public static int nglfwUpdateGamepadMappings(long string) {
-        long __functionAddress = Functions.UpdateGamepadMappings;
-        return invokePI(string, __functionAddress);
-    }
 
     /**
      * Adds the specified SDL_GameControllerDB gamepad mappings.
@@ -4269,18 +4159,7 @@ public class GLFW {
      */
     @NativeType("int")
     public static boolean glfwUpdateGamepadMappings(@NativeType("char const *") ByteBuffer string) {
-        if (CHECKS) {
-            checkNT1(string);
-        }
-        return nglfwUpdateGamepadMappings(memAddress(string)) != 0;
-    }
-
-    // --- [ glfwGetGamepadName ] ---
-
-    /** Unsafe version of: {@link #glfwGetGamepadName GetGamepadName} */
-    public static long nglfwGetGamepadName(int jid) {
-        long __functionAddress = Functions.GetGamepadName;
-        return invokeP(jid, __functionAddress);
+        return false;
     }
 
     /**
@@ -4303,16 +4182,7 @@ public class GLFW {
     @Nullable
     @NativeType("char const *")
     public static String glfwGetGamepadName(int jid) {
-        long __result = nglfwGetGamepadName(jid);
-        return memUTF8Safe(__result);
-    }
-
-    // --- [ glfwGetGamepadState ] ---
-
-    /** Unsafe version of: {@link #glfwGetGamepadState GetGamepadState} */
-    public static int nglfwGetGamepadState(int jid, long state) {
-        long __functionAddress = Functions.GetGamepadState;
-        return invokePI(jid, state, __functionAddress);
+        return null;
     }
 
     /**
@@ -4337,7 +4207,7 @@ public class GLFW {
      */
     @NativeType("int")
     public static boolean glfwGetGamepadState(int jid, @NativeType("GLFWgamepadstate *") GLFWGamepadState state) {
-        return nglfwGetGamepadState(jid, state.address()) != 0;
+        return false;
     }
 
     // --- [ glfwSetClipboardString ] ---
